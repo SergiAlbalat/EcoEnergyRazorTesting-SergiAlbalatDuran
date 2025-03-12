@@ -85,7 +85,7 @@ namespace EcoEnergyRazorTesting
             }
             if (!(entradaEnergia > minim))
             {
-                throw new ArgumentOutOfRangeException(ErrorForaRang);
+                //throw new ArgumentOutOfRangeException(ErrorForaRang);
             }
             EntradaEnergia = entradaEnergia;
             Data = data;
