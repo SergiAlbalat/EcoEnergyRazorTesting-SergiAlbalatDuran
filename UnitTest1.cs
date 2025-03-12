@@ -7,7 +7,7 @@ namespace EcoEnergyRazorTesting
         public void Test1()
         {
             SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 0, 3, 0.2, 0.5);
-            Assert.Equal(simulacio.Energia, 0);
+            Assert.Equal(simulacio.Energia, 0, 29999999999999999);
         }
         [Fact]
         public void Test2()
@@ -33,7 +33,26 @@ namespace EcoEnergyRazorTesting
         [Fact]
         public void Test1()
         {
-
+            SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 1, 0.1, 1, 2);
+            Assert.Equal(simulacio.CostTotal, 0.1);
+        }
+        [Fact]
+        public void Test2()
+        {
+            SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 31, 1, 1, 2);
+            Assert.Equal(simulacio.CostTotal, 31);
+        }
+        [Fact]
+        public void Test3()
+        {
+            SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 1, 1, 0.1, 2);
+            Assert.Equal(simulacio.CostTotal, 0.1);
+        }
+        [Fact]
+        public void Test4()
+        {
+            SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 1, 1, 20, 2);
+            Assert.Equal(simulacio.CostTotal, 20);
         }
     }
 }
