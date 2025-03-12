@@ -39,8 +39,8 @@ namespace EcoEnergyRazorTesting
         [Fact]
         public void Test2()
         {
-            SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 31, 1, 1, 2);
-            Assert.Equal(simulacio.CostTotal, 31);
+            SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 34, 1, 1, 2);
+            Assert.Equal(simulacio.CostTotal, 34);
         }
         [Fact]
         public void Test3()
@@ -53,6 +53,33 @@ namespace EcoEnergyRazorTesting
         {
             SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 1, 1, 20, 2);
             Assert.Equal(simulacio.CostTotal, 20);
+        }
+    }
+    public class CalcularPreuTotalTesting
+    {
+        [Fact]
+        public void Test1()
+        {
+            SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 1, 0.1, 0.1, 1);
+            Assert.Equal(simulacio.PreuTotal, 0.1);
+        }
+        [Fact]
+        public void Test2()
+        {
+            SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 34, 1, 0.1, 1);
+            Assert.Equal(simulacio.PreuTotal, 34);
+        }
+        [Fact]
+        public void Test3()
+        {
+            SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 1, 1, 0.1, 0.1);
+            Assert.Equal(simulacio.PreuTotal, 0.1);
+        }
+        [Fact]
+        public void Test4()
+        {
+            SistemaEnergia simulacio = new SistemaEnergia(DateTime.Now, "Solar", 1, 1, 0.1, 20);
+            Assert.Equal(simulacio.PreuTotal, 20);
         }
     }
 }
